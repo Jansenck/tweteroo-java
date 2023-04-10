@@ -17,7 +17,7 @@ public class Person {
     
     public Person(PersonDTO req){
         this.username = req.username();
-        this.urlImage = req.urlImage();
+        this.avatar = req.avatar();
     }
 
     @Id
@@ -28,5 +28,5 @@ public class Person {
     private String username;
 
     @Column(length = 255, nullable = false)
-    private String urlImage;
+    private String avatar;
 }
