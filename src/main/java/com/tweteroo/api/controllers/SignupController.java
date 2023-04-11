@@ -11,20 +11,18 @@ import com.tweteroo.api.dto.PersonDTO;
 import com.tweteroo.api.model.Person;
 import com.tweteroo.api.repositories.PersonRepository;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/users")
 public class SignupController {
 
     @Autowired
     private PersonRepository repository;
-
-    @GetMapping
-    public void listAll() {
-        System.out.println(repository.findAll());
-    }
     
     @PostMapping
-    public void create(@RequestBody PersonDTO req) {
+    public String create(@RequestBody @Valid PersonDTO req) {
         repository.save(new Person(req));
+        return "Ok";
     }
 }
