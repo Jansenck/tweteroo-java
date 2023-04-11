@@ -1,5 +1,7 @@
 package com.tweteroo.api.model;
 
+import java.time.Instant;
+
 import com.tweteroo.api.dto.PersonDTO;
 
 import jakarta.persistence.Column;
@@ -29,4 +31,7 @@ public class Person {
 
     @Column(length = 255, nullable = false)
     private String avatar;
+
+    @Column(nullable = false, updatable = false)
+    private Instant createdAt = Instant.now();
 }
